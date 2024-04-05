@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { Story } = require('../../../../../../15-Project-2/Models');
 const Story = require('../../models/Story');
 
 // route to create/add a dish
