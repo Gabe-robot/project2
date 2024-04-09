@@ -11,11 +11,18 @@ Story.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    story_title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+
+    // story_title: {
+    //   type: DataTypes.STRING,
+    //   allowNull: true,
+    // },
+
     user_story: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+
+    story_name: {
       type: DataTypes.STRING,
       allowNull: true,
     },
@@ -26,20 +33,15 @@ Story.init(
         model: 'user',
         key: 'id',
       },
-      date_created: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
-      },
- 
   },
+
   },
 
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Story',
+    modelName: 'story',
   }
 );
 
