@@ -37,7 +37,8 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/');
+        alert("You are logged in");
       } else {
         alert(response.statusText);
       }
