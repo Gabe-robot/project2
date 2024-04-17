@@ -49,4 +49,59 @@ body {
 }
 
 /* Additional Styles */
+<<<<<<< HEAD
+=======
+=======
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Login Button Style */
+.customLoginButton {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Logout Button Style */
+.customLogoutButton {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Profile Card Style */
+.profileCard {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Story Add Form Style */
+.storyForm {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Additional Styles */
+>>>>>>> 9632b1c8ba6fa3fac88ffbfaf5cdecf363f2bdc4
 /* Add more styles as needed for other elements */
