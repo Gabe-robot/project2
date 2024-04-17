@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS story_id;
-CREATE DATABASE story_id;
+DROP DATABASE IF EXISTS story_db;
+CREATE DATABASE story_db;
 
 
