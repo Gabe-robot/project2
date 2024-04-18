@@ -28,7 +28,7 @@ router.put('/:id', async (req, res) => {
     const story = await Story.update(
       {
         user_story: req.body.user_story,
-        user_name: req.body.user_name,
+        story_name: req.body.story_name,
        
       },
       {
@@ -38,8 +38,8 @@ router.put('/:id', async (req, res) => {
       }
     );
     // If the database is updated successfully, what happens to the updated data below?
-    // The updated data (dish) is then sent back to handler that dispatched the fetch request.
-    res.status(200).json(dish);
+    // The updated data (story) is then sent back to handler that dispatched the fetch request.
+    res.status(200).json(updatedStory);
   } catch (err) {
     res.status(500).json(err);
   }
