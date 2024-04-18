@@ -4,15 +4,24 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all Stories and JOIN with user data
-    const storyData = await Story.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
+    // Fetch all stories from the database added attributes so i could specifically target the story
+    const stories = await Story.findAll({
+      attributes:['user_story']
     });
+
+    // If no stories are found, return a 404 Not Found response
+    if (!stories || stories.length === 0) {
+      return res.status(404).json({ message: 'No stories found' });
+    }
+
+    // Return the retrieved stories as JSON response
+    res.status(200).json(stories);
+  } catch (err) {
+    // Handle any errors and return a 500 Internal Server Error response
+    console.error('Error fetching stories:', err);
+    res.status(500).json({ error: 'An unexpected error occurred' });
+  }
+});
 
     // Serialize data so the template can read it
     const stories = storyData.map((story) => story.get({ plain: true }));
@@ -29,25 +38,24 @@ router.get('/', async (req, res) => {
 
 router.get('/story/:id', async (req, res) => {
   try {
-    const storyData = await Story.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
+    // Fetch all stories from the database
+    const stories = await Story.findAll();
 
-    const story = storyData.get({ plain: true });
+    // If no stories are found, return a 404 Not Found response
+    if (!stories || stories.length === 0) {
+      return res.status(404).json({ message: 'No stories found' });
+    }
 
-    res.render('story', {
-      ...story,
-      logged_in: req.session.logged_in
-    });
+    // Return the retrieved stories as JSON response
+    res.status(200).json(stories);
   } catch (err) {
-    res.status(500).json(err);
+    // Handle any errors and return a 500 Internal Server Error response
+    console.error('Error fetching stories:', err);
+    res.status(500).json({ error: 'An unexpected error occurred' });
   }
 });
+
+module.exports = router;
 
 // Use withAuth middleware to prevent access to route
 router.get('/storyadd', withAuth, async (req, res) => {
